@@ -1,20 +1,24 @@
 import "./App.css";
 import React from "react";
 import Header from "./Componentes/Header";
-import Footer from "./Componentes/Footer";
-import FooterUI from "./Componentes/FooterUI";
-import StickyFooter from "./Componentes/StickyFooter";
+import Header1 from "./Componentes/Header1";
+import Footer1 from "./Componentes/Footer1";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Typography from "@material-ui/core/Typography";
 
 import CourseView from "./Views/Course";
 import LoginView from "./Views/Login";
 import CartView from "./Views/Cart";
+import Tabela from "./Componentes/Tabela";
 
 function App() {
   return (
     <Router>
-      <Header />
+      <Header1 />
+          <Typography variant="h2" color="textSecondary" component="p">
+                    F12
+          </Typography>
       <Switch>
         <Route exact path="/"></Route>
         <Route path="/login">
@@ -32,9 +36,13 @@ function App() {
             <CartView />
           </main>
         </Route>
-        <Route path="/curso"></Route>
+        <Route path="/cursos">
+          <main>
+            <Tabela />
+          </main>
+        </Route>
       </Switch>
-      <StickyFooter />
+      <Footer1 />
     </Router>
     
   );
