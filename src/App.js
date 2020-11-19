@@ -2,6 +2,8 @@ import "./App.css";
 import React from "react";
 import Header from "./Componentes/Header";
 import Footer from "./Componentes/Footer";
+import FooterUI from "./Componentes/FooterUI";
+import StickyFooter from "./Componentes/StickyFooter";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -24,7 +26,7 @@ function App() {
           <main>
             <h1>admin</h1>
           </main>
-        </Route>
+        </Route>   
         <Route path="/carrinho">
           <main>
             <CartView />
@@ -32,8 +34,9 @@ function App() {
         </Route>
         <Route path="/curso"></Route>
       </Switch>
-      <Footer />
+      <StickyFooter />
     </Router>
+    
   );
 }
 
