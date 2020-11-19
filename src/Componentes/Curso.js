@@ -11,7 +11,7 @@ import ShareIcon from "@material-ui/icons/Share";
 import { Avatar, IconButton, CardMedia } from "@material-ui/core";
 
 const Curso = props => {
-  const {title, subtitle, description, imageUrl, imageAlt } = props;
+  const {title, subtitle, description, imageUrl, imageAlt, price, professor, estrelas, tempo } = props;
   return (
     <Card>
         <CardActionArea>
@@ -27,7 +27,7 @@ const Curso = props => {
         </CardActionArea>
         <CardActions>
             <Button size="small" color="primary">
-            Comprar
+            Adicionar ao carrinho
             </Button>
             <Button size="small" color="primary">
             Mais detalhes

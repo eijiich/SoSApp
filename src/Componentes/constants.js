@@ -1,62 +1,139 @@
 export default [
     {
-      title: "Keurig K-Duo",
-      price: "$149.99",
-      description:
-        "Use both ground coffee and k-cup pods. Multiple brew sizes: brew an 8, 10, or 12-cup carafe and an 237, 296, or 355ml (8, 10, or 12 oz. ) cup ",
-      avatarUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/e/e0/Keurig_Logo.png",
-      imageUrl:
-        "https://images-na.ssl-images-amazon.com/images/I/61-KUPluVYL._AC_SL1500_.jpg"
+      title:"Física 1",
+      subtitle:"Leis de Newton", 
+      description:"Neste curso iremos aprender sobre as leis de Newton", 
+      imageUrl:"https://static.todamateria.com.br/upload/le/is/leis-de-newton-og.jpg", 
+      imageAlt:"Sir Newtin sentado embaixo de uma árvore escrevendo", 
+      price:"R$27,90", 
+      professor:"Lucas Albano", 
+      estrelas:"4.5", 
+      tempo:"5 horas",
     },
     {
-      title: "KRUPS Electric Spice",
-      price: "$19.99",
-      description:
-        "Large grinding capacity yields ground coffee for up to 12 cups of coffee",
-      avatarUrl:
-        "https://images-na.ssl-images-amazon.com/images/I/81CbxNLCHCL._AC_SL1500_.jpg",
-      imageUrl:
-        "https://images-na.ssl-images-amazon.com/images/I/71FhMLBP9XL._AC_SL1500_.jpg"
+      title:"Física 2",
+      subtitle:"Leis de Newton", 
+      description:"Neste curso iremos aprender sobre momento, oscilasções, hidroestática e hidrodinâmica", 
+      imageUrl:"https://img.elo7.com.br/product/zoom/3413A48/adesivo-de-parede-63x190cm-arctic-monkeys-logo-ondu-r1385-adesivo-de-parede.jpg", 
+      imageAlt:"Onda branca no fundo preto", 
+      price:"R$27,90", 
+      professor:"Lucas Albano", 
+      estrelas:"4.4", 
+      tempo:"6 horas",
     },
     {
-      title: "Hamilton Beach Flexbrew",
-      price: "$89.99",
-      description:
-        "No two coffee drinkers are the same – so, the flexibility to customize how and what you brew is key. From fresh grounds to K-Cup pods, the Hamilton Beach FlexBrew 2-Way Coffee Maker gives you the options to please fans of all types of coffees.",
-      avatarUrl:
-        "https://images-na.ssl-images-amazon.com/images/I/81mjh5ZSu1L._AC_SL1500_.jpg",
-      imageUrl:
-        "https://images-na.ssl-images-amazon.com/images/I/818rz3CIaFL._AC_SL1500_.jpg"
+      title:"Física 3",
+      subtitle:"Eletromagnetismo", 
+      description:"Neste curso iremos aprender sobre eletromagnetismo", 
+      imageUrl:"https://registrodemarca.arenamarcas.com.br/wp-content/uploads/2020/05/Eletromagnetismo.jpg", 
+      imageAlt:"Aquelas bolas de vidro que ligadas soltas miniraios com uma mão ao lado tocando nela", 
+      price:"R$27,90", 
+      professor:"Lucas Albano", 
+      estrelas:"3.5", 
+      tempo:"10 horas",
     },
     {
-      title: "Secura French Press",
-      price: "$36.48",
-      description:
-        "3-layered Stainless steel filter traps the smallest coffee grounds to produce an exceptional full-bodied flavor, filter is easy to disassemble and clean.",
-      avatarUrl:
-        "https://images-na.ssl-images-amazon.com/images/I/61u76aiQQsL._AC_SL1000_.jpg",
-      imageUrl:
-        "https://images-na.ssl-images-amazon.com/images/I/61XRMmXVwQL._AC_SL1500_.jpg"
+      title:"Cálculo 1",
+      subtitle:"Leis de Newton", 
+      description:"Neste curso iremos aprender limite, derivada e integral", 
+      imageUrl:"https://www.cengage.com.br/wp-content/uploads/portadas/full/8522112584.jpg", 
+      imageAlt:"Livro de cálculo 1 do James Stuart", 
+      price:"R$15,90", 
+      professor:"Lucas Albano", 
+      estrelas:"4.2", 
+      tempo:"8 horas",
     },
     {
-      title: "Cafe Du Chateau French Press",
-      price: "$32.95",
-      description:
-        "We use double stainless steel screen filters on a durable plunger supported by a spring loaded base plate to seal the edges, followed by a final top lid strainer to give you a pure brew with no grounds unlike other cheap presses.",
-      avatarUrl:
-        "https://images-na.ssl-images-amazon.com/images/I/81BdxpiRtCL._AC_SL1500_.jpg",
-      imageUrl:
-        "https://images-na.ssl-images-amazon.com/images/I/81luUhz7ZlL._AC_SL1500_.jpg"
+      title:"Cálculo 2",
+      subtitle:"Leis de Newton", 
+      description:"Neste curso iremos aprender sobre momento, oscilasções, hidroestática e hidrodinâmica", 
+      imageUrl:"https://image.isu.pub/130618185103-c04a239d5e5f6000ff79c8dd6f84404e/jpg/page_1.jpg", 
+      imageAlt:"Livro de cálculo 2 do James Stuart", 
+      price:"R$15,90", 
+      professor:"Lucas Albano", 
+      estrelas:"4.1", 
+      tempo:"6 horas",
     },
     {
-      title: "LIVINGbasics Single Serve Coffee Maker ",
-      price: "$37.99",
-      description:
-        'Brew with a single serve k-cup pod or ground coffee. Less than 14 cm (5.5") wide slim design, its the perfect size for any space.',
-      avatarUrl:
-        "https://images-na.ssl-images-amazon.com/images/I/61PGHBLkl8L._AC_SL1500_.jpg",
-      imageUrl:
-        "https://images-na.ssl-images-amazon.com/images/I/61KBB8K1wDL._AC_SL1000_.jpg"
-    }
+      title:"Cáculo 3",
+      subtitle:"Integrais triplas", 
+      description:"Neste curso iremos aprender sobre integrais triplas e outras formas de calcular volume", 
+      imageUrl:"https://images-na.ssl-images-amazon.com/images/I/418w0By0FDL._SX344_BO1,204,203,200_.jpg", 
+      imageAlt:"Livro de cálculo 3 do Guidorizzi", 
+      price:"R$15,90", 
+      professor:"Lucas Albano", 
+      estrelas:"4.3", 
+      tempo:"10 horas",
+    },
+    {
+      title:"Curso de Café Especial Coado",
+      subtitle:"Aprenda a fazer cafés especiais nos métodos: Hario V60, Chemex, Clever e Kalita", 
+      description:"Neste curso você vai aprender sobre os métodos de extração de café coados, moagem e a importância da água", 
+      imageUrl:"https://images.squarespace-cdn.com/content/545fa284e4b098772e50fd00/1571942506223-HK2RY3IX1O1WUJQ7Z1LA/Chemex+Pourover.jpg?format=1500w&content-type=image%2Fjpeg", 
+      imageAlt:"Chemex", 
+      price:"R$100,00", 
+      professor:"Marye", 
+      estrelas:"4.7", 
+      tempo:"3 horas",
+    },
+    {
+      title:"Pokémon Showdown - Básico",
+      subtitle:"Entenda o básico para jogar Pokémon Showdown", 
+      description:"Neste curso você vai aprender a jogar Pokémon Showdown , a relação entre os tipos de pokémon, terrenos, climas.", 
+      imageUrl:"https://tinyurl.com/yyfv3vu9", 
+      imageAlt:"Logo Pokémon Showdown", 
+      price:"R$34,90", 
+      professor:"Lucas Albano", 
+      estrelas:"4.6", 
+      tempo:"5 horas",
+    },
+
+    {
+      title:"Como fazer massa folhada",
+      subtitle:"Aprenda a fazer massa folhada do 0", 
+      description:"Este curso explica de forma detalhada, simples e acessível como fazer massa folheada em casa! ", 
+      imageUrl:"https://tinyurl.com/y5oj76gb", 
+      imageAlt:"Foto de croissant cortado ao meio", 
+      price:"R$ 35,00", 
+      professor:"IV", 
+      estrelas:"4.5", 
+      tempo:"2 horas",
+    },
+
+    {
+      title:"Curso de Lettering",
+      subtitle:"Lettering para leigos se tornarem profissionais", 
+      description:"Este curso ensina do básico ao avançado de lettering, não é preciso ter a letra bonita para fazer este curso. Neste curso você também vai aprender a fazer letterings em canecas, vidros e paredes!", 
+      imageUrl:"https://http2.mlstatic.com/adesivo-decor-parede-uma-dose-caprichada-de-cafe-amor-e-fe-D_NQ_NP_745928-MLB31044497944_062019-F.jpg", 
+      imageAlt:"Lettering na parede: uma dose caprichada de café, amor e fé", 
+      price:"R$500,00", 
+      professor:"Dani", 
+      estrelas:"4,9", 
+      tempo:"60 horas",
+    },
+
+    {
+      title:"Kazoo para iniciantes",
+      subtitle:"Como ser tao legal quanto o Kazoo kid", 
+      description:"Vamos aprender a tocar Kazoo e ser tao legal quanto o kazoo kid", 
+      imageUrl:"https://i.ytimg.com/vi/B1tL6rFsyAQ/hqdefault.jpg", 
+      imageAlt:"Kazoo kid sendo legal", 
+      price:"R$42,72", 
+      professor:"Daniel Eiji Chiyo", 
+      estrelas:"5,0", 
+      tempo:"40 horas"
+    },
+
+    {
+      title:"Reiki Básico",
+      subtitle:"Reiki com Eiki", 
+      description:"Ao final do curso você estará apto a reconhecer pontos vitais", 
+      imageUrl:"https://guiadaalma.com.br/wp-content/uploads/2019/09/reiki-presencial-sao-paulo-bela-vista.jpg", 
+      imageAlt:"Imagem de aplicação de Reiki", 
+      price:"R$ 120,00", 
+      professor:"Eiki", 
+      estrelas:"4,3", 
+      tempo:"6 horas",
+    },
+
   ];

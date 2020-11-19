@@ -16,9 +16,6 @@ function App() {
   return (
     <Router>
       <Header1 />
-          <Typography variant="h2" color="textSecondary" component="p">
-                    F12
-          </Typography>
       <Switch>
         <Route exact path="/"></Route>
         <Route path="/login">
@@ -38,6 +35,9 @@ function App() {
         </Route>
         <Route path="/cursos">
           <main>
+          <Typography variant="h3" color="primary" component="p">
+                    Cursos:
+          </Typography>
             <Tabela />
           </main>
         </Route>

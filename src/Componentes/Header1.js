@@ -18,6 +18,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import {withRouter} from 'react-router-dom';
 import ImportContactsIcon from '@material-ui/icons/ImportContacts';
+import Image from 'material-ui-image'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -118,7 +119,7 @@ const Header = props => {
       open={isMenuOpen}
       onClose={() => handleMenuClick(null)}
     >
-      <MenuItem onClick={() => handleMenuClick('/perfil')}>Perfil</MenuItem>
+      <MenuItem onClick={() => handleMenuClick('/login')}>Login</MenuItem>
     </Menu>
   );
 
@@ -150,7 +151,7 @@ const Header = props => {
       </MenuItem>
 
 
-      <MenuItem onClick={() => handleMenuClick('/perfil')}>
+      <MenuItem onClick={() => handleMenuClick('/login')}>
         <IconButton
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
@@ -159,7 +160,7 @@ const Header = props => {
         >
           <AccountCircle />
         </IconButton>
-        <p>Perfil</p>
+        <p>Login</p>
       </MenuItem>
     </Menu>
   );
@@ -182,7 +183,7 @@ const Header = props => {
           </div>
 
           <Paper variant="outlined" onClick={() => handleMenuClick('/')}>
-            <img width="100" src='SoSApp/src/img/SoS.png' alt="Logo Salva o Semestre"/>
+            <img width="200" src="https://i.imgur.com/h05fD1i.png" alt="Logo Salva o Semestre"/>
           </Paper>
 
           <div className={classes.search}>
@@ -217,7 +218,7 @@ const Header = props => {
               aria-label="account of current user"
               aria-controls={menuId}
               aria-haspopup="true"
-              onClick={() => handleMenuClick('/perfil')}
+              onClick={() => handleMenuClick('/login')}
               color="inherit"
             >
               <AccountCircle />
