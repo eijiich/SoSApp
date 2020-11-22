@@ -14,13 +14,17 @@ const useStyles = makeStyles({
   },
   courseCard: {
     marginTop: "20px",
-    border: "solid 2px lightgrey",
+    border: "solid 1px lightgrey",
   },
   cardMedia: {
     minHeight: 100,
   },
   cardTitle: {
     fontSize: 20,
+  },
+  coursePrice: {
+    fontSize: 20,
+    textAlign: "center",
   },
   title: {
     fontSize: 30,
@@ -51,6 +55,9 @@ export default function CartView() {
               {course.title}
             </Typography>
             <CardMedia style={{ height: "50px" }} image={course.imageUrl} imageAlt={course.imageAlt} className={classes.cardMedia} />
+            <Typography color="textSecondary" className={classes.coursePrice}>
+              {course.price}
+            </Typography>
           </Card>
         )
       })

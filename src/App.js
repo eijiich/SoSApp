@@ -12,6 +12,7 @@ import LoginView from "./Views/Login";
 import CartView from "./Views/Cart";
 import Conteudo from "./Componentes/Conteudo";
 import Cadastrar from "./Componentes/Cadastrar";
+import Main from "./Views/Main";
 
 import Curso from './Componentes/Curso'
 
@@ -20,7 +21,9 @@ function App() {
     <Router>
       <Header1 />
       <Switch>
-        <Route exact path="/"></Route>
+        <Route exact path="/">
+          <Main />
+        </Route>
 
         <Route exact path="/cursos" render={(props) => <Conteudo {...props} />} />
 
