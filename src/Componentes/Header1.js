@@ -1,24 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import { Paper } from '@material-ui/core';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
-import Badge from '@material-ui/core/Badge';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
+import { Paper, AppBar, Toolbar, IconButton, InputBase, MenuItem, Menu, Badge } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import MoreIcon from '@material-ui/icons/MoreVert';
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import ImportContactsIcon from '@material-ui/icons/ImportContacts';
-import Image from 'material-ui-image'
+
+import { getCartSlice } from '../Store/CartSlice'
+import { withStyles } from '@material-ui/core/styles';
+import { UserSlice } from '../Store/UserSlice';
+
+import Typography from '@material-ui/core/Typography';
+
+
+
+
+const StyledBadge = withStyles((theme) => ({
+  badge: {
+    right: -3,
+    top: 13,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: '0 4px',
+  },
+}))(Badge);
 
 
 const useStyles = makeStyles((theme) => ({
@@ -86,20 +92,28 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Header = props => {
-  const {history} = props;
+  const { history } = props;
   const classes = useStyles();
+  const userStore = UserSlice();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
+  const [cartCoursesNumber, setCartCoursesNumber] = useState(0)
+  useEffect(() => {
+    setCartCoursesNumber(
+      getCartSlice().length
+    )
+  }, [getCartSlice().length])
+
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
   };
 
   const handleMenuClick = (pageURL) => {
-    history.push(pageURL);  
+    history.push(pageURL);
     setAnchorEl(null);
     handleMobileMenuClose();
   };
@@ -138,18 +152,19 @@ const Header = props => {
 
       <MenuItem onClick={() => handleMenuClick('/cursos')}>
         <IconButton color="inherit">
-            <ImportContactsIcon />
+          <ImportContactsIcon />
         </IconButton>
         <p>Cursos</p>
       </MenuItem>
 
       <MenuItem onClick={() => handleMenuClick('/carrinho')}>
         <IconButton color="inherit">
+          <StyledBadge badgeContent={cartCoursesNumber} color="secondary">
             <ShoppingCartIcon />
+          </StyledBadge>
         </IconButton>
         <p>Carrinho</p>
       </MenuItem>
-
 
       <MenuItem onClick={() => handleMenuClick('/login')}>
         <IconButton
@@ -169,8 +184,8 @@ const Header = props => {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-      
-        <div className={classes.sectionMobile}>
+
+          <div className={classes.sectionMobile}>
             <IconButton
               aria-label="show more"
               aria-controls={mobileMenuId}
@@ -183,7 +198,7 @@ const Header = props => {
           </div>
 
           <Paper variant="outlined" onClick={() => handleMenuClick('/')}>
-            <img width="200" src="https://i.imgur.com/h05fD1i.png" alt="Logo Salva o Semestre"/>
+            <img width="200" src="https://i.imgur.com/h05fD1i.png" alt="Logo Salva o Semestre" />
           </Paper>
 
           <div className={classes.search}>
@@ -200,19 +215,24 @@ const Header = props => {
             />
           </div>
 
-          <div className={classes.grow} />
 
+          <div className={classes.grow} />
+          <Typography color="White" variant="body1">
+            {userStore.getLogin()}
+          </Typography>
 
           <div className={classes.sectionDesktop}>
 
             <IconButton onClick={() => handleMenuClick('/cursos')} aria-label="show 4 new mails" color="inherit">
-                <ImportContactsIcon />
+              <ImportContactsIcon />
             </IconButton>
 
             <IconButton onClick={() => handleMenuClick('/carrinho')} aria-label="show 4 new mails" color="inherit">
+              <StyledBadge badgeContent={cartCoursesNumber} color="secondary">
                 <ShoppingCartIcon />
+              </StyledBadge>
             </IconButton>
-            
+
             <IconButton
               edge="end"
               aria-label="account of current user"
@@ -223,10 +243,7 @@ const Header = props => {
             >
               <AccountCircle />
             </IconButton>
-
           </div>
-
-
         </Toolbar>
       </AppBar>
       {renderMobileMenu}

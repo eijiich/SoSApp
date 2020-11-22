@@ -31,13 +31,13 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(3, 0),
     margin: '16vh 0vh 0vh 0vh',
     position: 'fixed',
-    bottom:'0',
-    width:'100%',
-    color:'white',
-    backgroundColor: theme.palette.grey[600],
+    bottom: '0',
+    width: '100%',
+    color: 'black',
+    backgroundColor: theme.palette.grey[200],
   },
   container: {
-    textAlign:'center',
+    textAlign: 'center',
   },
 }));
 
@@ -48,7 +48,7 @@ export default function Footer1() {
     <div className={classes.root}>
       <footer className={classes.footer}>
         <Container className={classes.container} maxWidth="sm" >
-          <Typography variant="body1">Footer Salva o Semestre</Typography>
+          <Typography variant="body1">Salva o Semestre</Typography>
           <Copyright />
         </Container>
       </footer>

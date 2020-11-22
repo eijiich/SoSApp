@@ -10,7 +10,10 @@ import Typography from "@material-ui/core/Typography";
 import CourseView from "./Views/Course";
 import LoginView from "./Views/Login";
 import CartView from "./Views/Cart";
-import Tabela from "./Componentes/Tabela";
+import Conteudo from "./Componentes/Conteudo";
+import Cadastrar from "./Componentes/Cadastrar";
+
+import Curso from './Componentes/Curso'
 
 function App() {
   return (
@@ -18,33 +21,40 @@ function App() {
       <Header1 />
       <Switch>
         <Route exact path="/"></Route>
+
+        <Route exact path="/cursos" render={(props) => <Conteudo {...props} />} />
+
+        <Route
+          exact
+          path="/cursos/:cursoId"
+          render={(props) => <Curso {...props} />}
+        />
+
         <Route path="/login">
           <main>
             <LoginView />
+          </main>
+        </Route>
+        <Route path="/cadastrar">
+          <main>
+            <Cadastrar />
           </main>
         </Route>
         <Route path="/admin">
           <main>
             <h1>admin</h1>
           </main>
-        </Route>   
+        </Route>
         <Route path="/carrinho">
           <main>
             <CartView />
           </main>
         </Route>
-        <Route path="/cursos">
-          <main>
-          <Typography variant="h3" color="primary" component="p">
-                    Cursos:
-          </Typography>
-            <Tabela />
-          </main>
-        </Route>
+
       </Switch>
       <Footer1 />
     </Router>
-    
+
   );
 }
 
