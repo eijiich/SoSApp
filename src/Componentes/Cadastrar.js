@@ -88,8 +88,6 @@ export default function InputAdornments() {
                     variant="outlined"
                 />
 
-
-
                 <FormControl fullWidth className={clsx(classes.margin, classes.textField)} variant="outlined">
                     <InputLabel htmlFor="outlined-adornment-password">Digite sua senha</InputLabel>
                     <OutlinedInput

@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./Componentes/Header";
 import Footer from "./Componentes/Footer";
-
+import Curso from './Componentes/Curso';
 
 import LoginView from "./Views/Login";
 import CartView from "./Views/Cart";
@@ -13,8 +13,6 @@ import Main from "./Views/Main";
 import Admin from "./Views/Admin";
 import Pagamento from "./Views/Pagamento";
 
-import Curso from './Componentes/Curso';
-
 function App() {
   return (
     <Router>
@@ -23,9 +21,7 @@ function App() {
         <Route exact path="/">
           <Main />
         </Route>
-
         <Route exact path="/cursos" render={(props) => <Conteudo {...props} />} />
-
         <Route
           exact
           path="/cursos/:cursoId"
@@ -61,7 +57,6 @@ function App() {
             <Pagamento />
           </main>
         </Route>
-
       </Switch>
       <Footer />
     </Router>

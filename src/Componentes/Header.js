@@ -24,12 +24,14 @@ const StyledBadge = withStyles((theme) => ({
     border: `2px solid ${theme.palette.background.paper}`,
     padding: '0 4px',
   },
+  
 }))(Badge);
 
 
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
+    margin: '0vh 0vh 2vh 0vh',
   },
   menuButton: {
     marginRight: theme.spacing(2),

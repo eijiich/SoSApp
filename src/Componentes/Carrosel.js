@@ -2,13 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
-import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
-import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
+import SwipeableViews from 'react-swipeable-views';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -47,7 +46,8 @@ const styles = theme => ({
   img: {
     width: '30%',
     display: 'block',
-    maxWidth: '100%',
+    maxWidth: '100vw',
+    maxHeight: '60vh',
     overflow: 'hidden',
     width: '100%',
   },
@@ -81,8 +81,13 @@ class SwipeableTextMobileStepper extends React.Component {
     return (
       <div className={classes.root}>
 
-        <Typography style={{ whiteSpace: 'pre-line' }} variant="h3">{tutorialSteps[activeStep].label }</Typography>
-
+        <Typography style={{ whiteSpace: 'pre-line' },{margin: "0vh 0vh 2vh 0vh"}} variant="h4">{tutorialSteps[activeStep].label}</Typography>
+        <Typography
+  variant="body1"
+  style={{whiteSpace: 'pre-line'}}
+>
+  
+</Typography>
         <AutoPlaySwipeableViews
           axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
           index={activeStep}
@@ -104,14 +109,14 @@ class SwipeableTextMobileStepper extends React.Component {
           className={classes.mobileStepper}
           nextButton={
             <Button size="small" onClick={this.handleNext} disabled={activeStep === maxSteps - 1}>
-              Next
+              Próximo
           {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
             </Button>
           }
           backButton={
             <Button size="small" onClick={this.handleBack} disabled={activeStep === 0}>
               {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
-          Back
+          Anterior
         </Button>
           }
         />

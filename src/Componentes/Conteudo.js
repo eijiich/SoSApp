@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { Grid } from '@material-ui/core';
-import Curso from './Curso';
-import listaCursos from "./constants";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardActionArea from '@material-ui/core/CardActionArea';
-import { Avatar, IconButton, CardMedia, Button } from "@material-ui/core";
+import { CardMedia, Button } from "@material-ui/core";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import { fade, makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
 import StarRateIcon from '@material-ui/icons/StarRate';
+import { Container } from '@material-ui/core';
+import listaCursos from "./constants";
 
 const useStyles = makeStyles((theme) => ({
   cardMedia: {
@@ -24,6 +24,10 @@ const useStyles = makeStyles((theme) => ({
   buttonContent: {
     textAlign: "center",
     justifyContent: "center",
+  },
+  container: {
+    marginTop: "2vh",
+    marginBottom: "120px",
   },
 }));
 
@@ -65,7 +69,7 @@ const Conteudo = nomeCurso => {
   };
 
   return (
-    <Grid container spacing={4}>
+    <Grid container spacing={4} className={classes.container}>
       {Object.keys(dadosCurso).map(nomeCurso =>
         getCurso(nomeCurso))}
     </Grid>

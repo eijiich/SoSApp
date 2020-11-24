@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+
 export default function RadioButtonsGroup() {
     const classes = useStyles();
     let history = useHistory();
@@ -85,11 +86,7 @@ export default function RadioButtonsGroup() {
                     color="primary"
                     style={{ textTransform: "none" }}
                     onClick={() => {
-                        return (
-                            <h1>
-                                Obrigado por sua compra!
-                            </h1>
-                        );
+ 
                     }}
                     className={clsx(classes.margin, classes.textField)}
 
@@ -99,12 +96,12 @@ export default function RadioButtonsGroup() {
             </div>
 
     } else {
-        paymentRender = 
-        <div>
-            <h3>Código do boleto:</h3>
-            <h1>456436484634168468465416584635</h1>
+        paymentRender =
+            <div>
+                <h3>Código do boleto:</h3>
+                <h1>456436484634168468465416584635</h1>
 
-            <Button
+                <Button
                     fullWidth
                     variant="outlined"
                     color="primary"
@@ -121,7 +118,7 @@ export default function RadioButtonsGroup() {
                 >
                     Finalizar
         </Button>
-        </div>;
+            </div>;
     }
 
 

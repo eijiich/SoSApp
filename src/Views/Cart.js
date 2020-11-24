@@ -1,16 +1,17 @@
 import { Button, Card, CardMedia, Grid, CardContent, Typography } from "@material-ui/core";
-import { getCartSlice } from '../Store/CartSlice'
-import { UserSlice } from '../Store/UserSlice'
 
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { createBrowserHistory } from "history";
 import { useParams, useHistory } from "react-router-dom";
 
+import { getCartSlice } from '../Store/CartSlice'
+import { UserSlice } from '../Store/UserSlice'
+
 const useStyles = makeStyles({
   card: {
     maxWidth: "30%",
-    marginLeft: "5vw",
+    marginLeft: "3vw",
     marginRight: "10vw",
     minWidth: "30vw",
     minHeight: "50vh",
@@ -27,6 +28,7 @@ const useStyles = makeStyles({
     fontSize: 30,
     fontWeight: "bold",
     marginTop: "25vh",
+    textAlign: "center",
   },
   cardTitle: {
     fontSize: 20,
@@ -48,6 +50,13 @@ const useStyles = makeStyles({
   },
   pos: {
     marginBottom: 12,
+  },
+  finalizarCompra: {
+    marginLeft: "auto",
+    marginRight: "auto",
+  },
+  container: {
+    marginBottom: "120px",
   },
 });
 
@@ -81,7 +90,7 @@ export default function CartView() {
 
 
   return (
-    <div>
+    <div className={classes.container}>
       <Typography className={classes.title} color="textPrimary" gutterBottom="true">
         Carrinho de compras
       </Typography>
@@ -105,8 +114,8 @@ export default function CartView() {
               <Typography className={classes.totalPrice}>
                 Preço total: R${totalPriceCart.toFixed(2)}
               </Typography>
-              <Button size="big" variant='contained' color="primary" onClick={() => {
-                history.push(`/pagamento`)
+              <Button size="big" variant='contained' color="primary" className={classes.finalizarCompra} onClick={() => {
+                history.push(`/pagamento`) 
               }} >
                 Finalizar compra
               </Button>
