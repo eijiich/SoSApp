@@ -1,7 +1,11 @@
 import { Button, Card, CardMedia, Grid, CardContent, Typography } from "@material-ui/core";
 import { getCartSlice } from '../Store/CartSlice'
+import { UserSlice } from '../Store/UserSlice'
+
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { createBrowserHistory } from "history";
+import { useParams, useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
   card: {
@@ -18,6 +22,11 @@ const useStyles = makeStyles({
   },
   cardMedia: {
     minHeight: 100,
+  },
+  totalPrice: {
+    fontSize: 30,
+    fontWeight: "bold",
+    marginTop: "25vh",
   },
   cardTitle: {
     fontSize: 20,
@@ -43,26 +52,32 @@ const useStyles = makeStyles({
 });
 
 export default function CartView() {
+  let history = useHistory();
   const classes = useStyles();
-  const [currentCartCourses, setCurrentCartCourses] = useState(null)
+  const [currentCartCourses, setCurrentCartCourses] = useState([]);
+
 
   useEffect(() => {
-    setCurrentCartCourses(
-      getCartSlice().map((course) => {
-        return (
-          <Card className={classes.courseCard}>
-            <Typography color="textSecondary" className={classes.cardTitle}>
-              {course.title}
-            </Typography>
-            <CardMedia style={{ height: "50px" }} image={course.imageUrl} imageAlt={course.imageAlt} className={classes.cardMedia} />
-            <Typography color="textSecondary" className={classes.coursePrice}>
-              {course.price}
-            </Typography>
-          </Card>
-        )
-      })
-    )
+    setCurrentCartCourses(getCartSlice());
   }, [getCartSlice().length])
+
+  const courseDisplay = currentCartCourses.map((course) => {
+    return (
+      <Card className={classes.courseCard}>
+        <Typography color="textSecondary" className={classes.cardTitle}>
+          {course.title}
+        </Typography>
+        <CardMedia style={{ height: "50px" }} image={course.imageUrl} imageAlt={course.imageAlt} className={classes.cardMedia} />
+        <Typography color="textSecondary" className={classes.coursePrice}>
+          {course.price}
+        </Typography>
+      </Card>
+    )
+  })
+
+  let totalPriceCart = currentCartCourses.reduce((acumulator, current) => {
+    return acumulator + Number(current.price.substring(2).replace(",", "."));
+  }, 0);
 
 
   return (
@@ -70,14 +85,14 @@ export default function CartView() {
       <Typography className={classes.title} color="textPrimary" gutterBottom="true">
         Carrinho de compras
       </Typography>
-      <Grid container spacing={10} alignItems="space-between">
+      <Grid container spacing={10} alignItems="space-between" wrap="nowrap">
         <Grid item>
           <Card variant="outlined" color="secondary" className={classes.card}>
             <CardContent>
               <Typography className={classes.secTitle} color="textSecondary" gutterBottom="true">
                 Sua lista de compras
               </Typography>
-              {currentCartCourses}
+              {courseDisplay}
             </CardContent>
           </Card>
         </Grid>
@@ -87,7 +102,14 @@ export default function CartView() {
               <Typography className={classes.secTitle} color="textSecondary" gutterBottom="true">
                 Resumo das compras
               </Typography>
-              {/* adicionar aqui resumo dos custos*/}
+              <Typography className={classes.totalPrice}>
+                Preço total: R${totalPriceCart.toFixed(2)}
+              </Typography>
+              <Button size="big" variant='contained' color="primary" onClick={() => {
+                history.push(`/pagamento`)
+              }} >
+                Finalizar compra
+              </Button>
             </CardContent>
           </Card>
         </Grid>

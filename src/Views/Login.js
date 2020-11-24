@@ -55,6 +55,9 @@ export default function LoginView() {
 
 
   if (userStore.getLogin()) {
+    if (userStore.getLogin() === 'admin') {
+      history.push("/admin");
+    }
 
     return (
       <div className={classes.cadatradoClasse}>
@@ -160,7 +163,10 @@ export default function LoginView() {
               variant="outlined"
               color="primary"
               style={{ textTransform: "none" }}
-              onClick={() => { userStore.setLogin(formState.login) }}
+              onClick={() => {
+                userStore.setLogin(formState.login);
+                if (formState.login === 'admin') history.push("/admin");
+              }}
             >
               Login
             </Button>

@@ -17,7 +17,7 @@ export const UserSlice = () => {
         setLogin: (login) => {
             UserStoreSlice = { ...UserStoreSlice, login: login };
             setUserStore(UserStoreSlice);
-        }
+        },
     }
 }
 

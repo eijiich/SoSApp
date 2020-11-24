@@ -17,7 +17,7 @@ const tutorialSteps = [
     label: 'Aprenda mais!',
     imgPath:
       'https://knowlab.in/wp-content/uploads/2019/12/666-1200x675.jpg',
-    },
+  },
   {
     label: 'Aprenda em menos tempo!',
     imgPath:
@@ -34,7 +34,7 @@ const styles = theme => ({
   root: {
     maxWidth: '100%',
     flexGrow: 1,
-    alignItems:'center',
+    alignItems: 'center',
   },
   header: {
     display: 'flex',
@@ -78,50 +78,50 @@ class SwipeableTextMobileStepper extends React.Component {
     const { classes, theme } = this.props;
     const { activeStep } = this.state;
     const maxSteps = tutorialSteps.length;
-return (
-  <div className={classes.root}>
-    <Paper square elevation={0} className={classes.header}>
-      <Typography variant="h3">{tutorialSteps[activeStep].label}</Typography>
-    </Paper>
-    <AutoPlaySwipeableViews
-      axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-      index={activeStep}
-      onChangeIndex={this.handleStepChange}
-      enableMouseEvents
-    >
-      {tutorialSteps.map((step, index) => (
-        <div key={step.label}>
-          {Math.abs(activeStep - index) <= 2 ? (
-            <img className={classes.img} src={step.imgPath} alt={step.label} />
-          ) : null}
-        </div>
-      ))}
-    </AutoPlaySwipeableViews>
-    <MobileStepper
-      steps={maxSteps}
-      position="static"
-      activeStep={activeStep}
-      className={classes.mobileStepper}
-      nextButton={
-        <Button size="small" onClick={this.handleNext} disabled={activeStep === maxSteps - 1}>
-          Next
+    return (
+      <div className={classes.root}>
+
+        <Typography style={{ whiteSpace: 'pre-line' }} variant="h3">{tutorialSteps[activeStep].label }</Typography>
+
+        <AutoPlaySwipeableViews
+          axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+          index={activeStep}
+          onChangeIndex={this.handleStepChange}
+          enableMouseEvents
+        >
+          {tutorialSteps.map((step, index) => (
+            <div key={step.label}>
+              {Math.abs(activeStep - index) <= 2 ? (
+                <img className={classes.img} src={step.imgPath} alt={step.label} />
+              ) : null}
+            </div>
+          ))}
+        </AutoPlaySwipeableViews>
+        <MobileStepper
+          steps={maxSteps}
+          position="static"
+          activeStep={activeStep}
+          className={classes.mobileStepper}
+          nextButton={
+            <Button size="small" onClick={this.handleNext} disabled={activeStep === maxSteps - 1}>
+              Next
           {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
-        </Button>
-      }
-      backButton={
-        <Button size="small" onClick={this.handleBack} disabled={activeStep === 0}>
-          {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+            </Button>
+          }
+          backButton={
+            <Button size="small" onClick={this.handleBack} disabled={activeStep === 0}>
+              {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
           Back
         </Button>
-      }
-    />
-  </div>
-);
-}
+          }
+        />
+      </div>
+    );
+  }
 }
 SwipeableTextMobileStepper.propTypes = {
-classes: PropTypes.object.isRequired,
-theme: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(SwipeableTextMobileStepper);

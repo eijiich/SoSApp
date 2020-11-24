@@ -6,7 +6,7 @@ import Button from "@material-ui/core/Button";
 import { createBrowserHistory } from "history";
 import { useParams, useHistory } from "react-router-dom";
 import Carrosel from '..//Componentes/Carrosel';
-import {Grid } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -22,29 +22,22 @@ const useStyles = makeStyles({
 
 const Main = () => {
     let history = useHistory();
-    
-    return (
-        <Grid container direction="column" >
-        <Grid item container>
-            <Grid item sm={1} xs={0} />
-            <Grid item sm={10} xs={12}>
 
-            <Typography variant="body1"
-            style={{ whiteSpace: 'pre-line' }} />
-                                <Typography variant="body1"
-                        style={{ whiteSpace: 'pre-line' }} />
-            <Carrosel />
-            <Divider variant="middle"/>
-            <Typography variant="h3">
-                Nossos cursos
-            </Typography>
-            <Button size="big" variant='contained' color="primary" onClick={() => {
+    return (
+        <Grid container direction="column" style={{marginBottom:"120px"}}>
+            <Grid item container>
+                <Grid item sm={1} xs={0} />
+                <Grid item sm={10} xs={12}>
+                    <Carrosel />
+                    <Divider variant="middle" />
+
+                    <Button size="big" variant='contained' color="primary" onClick={() => {
                         history.push(`/cursos`)
                     }} >
                         Veja nossos cursos
                     </Button>
-            <Conteudo />
-            </Grid>
+                    <Conteudo />
+                </Grid>
                 <Grid item sm={1} xs={0} />
             </Grid>
         </Grid >

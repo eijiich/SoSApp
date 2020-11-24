@@ -1,25 +1,24 @@
 import "./App.css";
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./Componentes/Header";
-import Header1 from "./Componentes/Header1";
-import Footer1 from "./Componentes/Footer1";
+import Footer from "./Componentes/Footer";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Typography from "@material-ui/core/Typography";
 
-import CourseView from "./Views/Course";
 import LoginView from "./Views/Login";
 import CartView from "./Views/Cart";
 import Conteudo from "./Componentes/Conteudo";
 import Cadastrar from "./Componentes/Cadastrar";
 import Main from "./Views/Main";
+import Admin from "./Views/Admin";
+import Pagamento from "./Views/Pagamento";
 
-import Curso from './Componentes/Curso'
+import Curso from './Componentes/Curso';
 
 function App() {
   return (
     <Router>
-      <Header1 />
+      <Header />
       <Switch>
         <Route exact path="/">
           <Main />
@@ -38,27 +37,35 @@ function App() {
             <LoginView />
           </main>
         </Route>
+
         <Route path="/cadastrar">
           <main>
             <Cadastrar />
           </main>
         </Route>
+
         <Route path="/admin">
           <main>
-            <h1>admin</h1>
+            <Admin />
           </main>
         </Route>
+
         <Route path="/carrinho">
           <main>
             <CartView />
           </main>
         </Route>
 
-      </Switch>
-      <Footer1 />
-    </Router>
+        <Route path="/pagamento">
+          <main>
+            <Pagamento />
+          </main>
+        </Route>
 
-  );
+      </Switch>
+      <Footer />
+    </Router>
+  )
 }
 
 export default App;

@@ -41,11 +41,10 @@ const Curso = props => {
 
     return (
 
-        <Grid container direction="column" >
-            <Grid item container>
+        <Grid container direction="column" style={{marginBottom:"120px"}}>
+            <Grid item container style={{marginBottom:"120px"}}>
                 <Grid item sm={1} xs={0} />
                 <Grid item sm={10} xs={12}>
-
                     <Card>
                         <CardActionArea>
                             <CardMedia style={{ height: "150px" }} image={imageUrl} imageAlt={imageAlt} />
