@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -17,11 +17,14 @@ import { useParams, useHistory } from "react-router-dom";
 const useStyles = makeStyles({
     topico: {
         fontSize: 20,
-        fontWeight: "bold",
-        marginLeft: "3vw",
-        marginTop: "5vh",
+        fontWeight: 500,
+        marginBottom: "0.3em",
     },
-
+    titulo: {
+        fontSize: 25,
+        fontWeight: "bold",
+        marginBottom: "0.9em",
+    },
     grid: {
         marginBottom: "120px",
     },
@@ -32,63 +35,77 @@ const Curso = props => {
     const classes = useStyles();
     let history = useHistory();
     const { cursoId } = useParams();
-    const [dadosCurso, setarDadosCurso] = useState(listaCursos[cursoId]);
+    const [dadosCurso, setarDadosCurso] = useState({ title: '', subtitle: '', description: '', imageUrl: '', imageAlt: '', price: '', professor: '', estrelas: '', tempo: '' });
+
     const { title, subtitle, description, imageUrl, imageAlt, price, professor, estrelas, tempo } = dadosCurso;
 
+    useEffect(() => {
+        fetch(`/cursos/${cursoId}`).
+            then((response) => {
+                response.json().then((data) => {
+                    setarDadosCurso({ ...dadosCurso, ...data });
+                });
+
+            })
+    }, [cursoId]);
+
     return (
-            <Grid container direction="column">
-                <Grid item>
-                    <Grid item sm={10} xs={12}>
-                        <Card>
-                            <CardActionArea>
-                                <CardMedia style={{ height: "150px" }} image={imageUrl} imageAlt={imageAlt} />
-                                <CardContent>
-                                    <Typography gutterBottom variant="h5" component="h2">
-                                        {title}
-                                    </Typography>
-                                    <Typography variant="body2" color="textSecondary" component="p">
-                                        {description}
-                                    </Typography>
-                                </CardContent>
-                            </CardActionArea>
-                            <CardActions>
-                                <Button size="small" color="primary" onClick={() => {
-                                    addCourseToCart(dadosCurso);
-                                    history.push(`/carrinho`)
-                                }} >
-                                    Adicionar ao carrinho
+        <Container lg={12} style={{ marginBottom: "120px" }}>
+            <Card>
+                <CardMedia style={{ minHeight: "40vh" }} image={imageUrl} imageAlt={imageAlt} />
+                <CardContent>
+
+                    <Typography className={classes.titulo} variant="h5" component="h2">
+                        {title}
+                    </Typography>
+
+
+                    <Typography className={classes.topico} variant="body2" color="textSecondary" component="p">
+                        {description}
+                    </Typography>
+
+
+                    <Typography className={classes.topico} variant="body2" color="textSecondary" component="p">
+                        Descrição completa: {description}
+                    </Typography>
+
+
+                    <Typography className={classes.topico} variant="body2" color="textSecondary" component="p">
+                        Professor: {professor}
+                    </Typography>
+
+
+                    <Typography className={classes.topico} variant="body2" color="textSecondary" component="p">
+                        Estrelas: {estrelas}
+                    </Typography>
+
+
+                    <Typography className={classes.topico} variant="body2" color="textSecondary" component="p">
+                        Tempo: {tempo}
+                    </Typography>
+
+
+                    <Typography className={classes.topico} variant="body2" color="textSecondary" component="p">
+                        Preço: {price}
+                    </Typography>
+
+
+                    <Typography className={classes.topico} variant="body1"
+                        style={{ whiteSpace: 'pre-line' }} />
+
+                </CardContent>
+
+                <CardActions>
+                    <Button size="large" color="primary" onClick={() => {
+                        addCourseToCart(dadosCurso);
+                        history.push(`/carrinho`)
+                    }} >
+                        Adicionar ao carrinho
                                 </Button>
-                            </CardActions>
-                        </Card>
+                </CardActions>
+            </Card>
+        </Container >
 
-                        <Typography className={classes.topico}>
-                            Descrição completa: {description}
-                        </Typography>
-                        <Typography className={classes.topico}>
-                            Professor: {professor}
-                        </Typography>
-                        <Typography className={classes.topico}>
-                            Estrelas: {estrelas}
-                        </Typography>
-                        <Typography className={classes.topico}>
-                            Tempo: {tempo}
-                        </Typography>
-                        <Typography className={classes.topico}>
-                            Preço: {price}
-                        </Typography>
-                        <Typography variant="body1"
-                            style={{ whiteSpace: 'pre-line' }} />
-
-                        <Button className={classes.topico} size="big" variant='contained' color="primary" onClick={() => {
-                            addCourseToCart(dadosCurso);
-                            history.push(`/carrinho`)
-                        }} >
-                            Adicionar ao carrinho
-                        </Button>
-                    </Grid>
-                    <Grid item sm={1} xs={0}/>
-                </Grid>
-            </Grid >
     );
 };
 

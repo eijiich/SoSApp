@@ -12,6 +12,8 @@ import Cadastrar from "./Componentes/Cadastrar";
 import Main from "./Views/Main";
 import Admin from "./Views/Admin";
 import Pagamento from "./Views/Pagamento";
+import { Container } from "@material-ui/core";
+
 
 function App() {
   return (
@@ -21,7 +23,11 @@ function App() {
         <Route exact path="/">
           <Main />
         </Route>
-        <Route exact path="/cursos" render={(props) => <Conteudo {...props} />} />
+        <Route exact path="/cursos" >
+          <Container lg={12}>
+            <Conteudo />
+          </Container>
+        </Route >
         <Route
           exact
           path="/cursos/:cursoId"

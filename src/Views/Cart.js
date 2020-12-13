@@ -1,4 +1,4 @@
-import { Button, Card, CardMedia, Grid, CardContent, Typography } from "@material-ui/core";
+import { Button, Card, CardMedia, Grid, CardContent, Typography, Container } from "@material-ui/core";
 
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
@@ -10,25 +10,43 @@ import { UserSlice } from '../Store/UserSlice'
 
 const useStyles = makeStyles({
   card: {
-    maxWidth: "30%",
-    marginLeft: "3vw",
-    marginRight: "10vw",
-    minWidth: "30vw",
-    minHeight: "50vh",
-    border: "solid 1px lightgrey",
+    minWidth: "100%",
+    minHeight: "40vh",
+    border: "solid 3px #adb5bd",
+    boxShadow: "4px 4px 7px #495057",
+  },
+  container: {
+    marginBottom: "120px",
   },
   courseCard: {
     marginTop: "20px",
-    border: "solid 1px lightgrey",
+    border: "solid 2px lightgrey",
   },
   cardMedia: {
     minHeight: 100,
   },
+  cardContent: {
+    minWidth: "100%",
+    minHeight: "40vh",
+    border: "solid 3px #adb5bd",
+    boxShadow: "4px 4px 7px #495057",
+    display: "flex",
+    flexFlow: "column wrap",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    height: "100%",
+  },
+
+  cardContentItem: {
+    flexGrow: 1
+  },
   totalPrice: {
     fontSize: 30,
+    marginTop: "auto",
+    marginBottom: "auto",
     fontWeight: "bold",
-    marginTop: "25vh",
     textAlign: "center",
+
   },
   cardTitle: {
     fontSize: 20,
@@ -40,24 +58,23 @@ const useStyles = makeStyles({
   title: {
     fontSize: 30,
     fontWeight: "bold",
-    marginLeft: "3vw",
     marginTop: "5vh",
+    textAlign: 'center',
 
   },
   secTitle: {
     fontSize: 20,
     fontWeight: "800",
+
   },
   pos: {
     marginBottom: 12,
   },
   finalizarCompra: {
-    marginLeft: "auto",
-    marginRight: "auto",
+    marginTop: "3vh",
+
   },
-  container: {
-    marginBottom: "120px",
-  },
+
 });
 
 export default function CartView() {
@@ -90,12 +107,12 @@ export default function CartView() {
 
 
   return (
-    <div className={classes.container}>
+    <Container maxWidth="lg" className={classes.container}>
       <Typography className={classes.title} color="textPrimary" gutterBottom="true">
         Carrinho de compras
       </Typography>
-      <Grid container spacing={10} alignItems="space-between" wrap="nowrap">
-        <Grid item>
+      <Grid container spacing={10}>
+        <Grid item xs={12} sm={12} md={6}>
           <Card variant="outlined" color="secondary" className={classes.card}>
             <CardContent>
               <Typography className={classes.secTitle} color="textSecondary" gutterBottom="true">
@@ -105,24 +122,22 @@ export default function CartView() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item>
-          <Card variant="outlined" color="secondary" className={classes.card}>
-            <CardContent>
-              <Typography className={classes.secTitle} color="textSecondary" gutterBottom="true">
-                Resumo das compras
+        <Grid item xs={12} sm={12} md={6}>
+          <Card variant="outlined" color="secondary" className={classes.cardContent}>
+            <Typography className={classes.secTitle} color="textSecondary" gutterBottom="true">
+              Resumo das compras
               </Typography>
-              <Typography className={classes.totalPrice}>
-                Preço total: R${totalPriceCart.toFixed(2)}
-              </Typography>
-              <Button size="big" variant='contained' color="primary" className={classes.finalizarCompra} onClick={() => {
-                history.push(`/pagamento`) 
-              }} >
-                Finalizar compra
+            <Typography className={classes.totalPrice}>
+              Preço total: R${totalPriceCart.toFixed(2)}
+            </Typography>
+            <Button size="big" variant='contained' color="primary" className={classes.finalizarCompra} onClick={() => {
+              history.push(`/pagamento`)
+            }} >
+              Finalizar compra
               </Button>
-            </CardContent>
           </Card>
         </Grid>
       </Grid>
-    </div>
+    </Container>
   );
 }

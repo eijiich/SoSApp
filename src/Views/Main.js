@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Divider from '@material-ui/core/Divider';
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
@@ -12,10 +12,10 @@ import Carrosel from '..//Componentes/Carrosel';
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
-    buttonCenter:{
+    buttonCenter: {
         margin: "3vh 40% 0vh 0%",
     },
-    dividerStyle:{
+    dividerStyle: {
         margin: "3vh 0vh 3vh 0vh",
     },
     topico: {
@@ -31,13 +31,15 @@ const Main = () => {
     let history = useHistory();
     const classes = useStyles();
 
+
+
     return (
-        <Grid container direction="column" style={{marginBottom:"120px"}}>
+        <Grid container direction="column" style={{ marginBottom: "120px" }}>
             <Grid item container>
                 <Grid item sm={1} xs={0} />
                 <Grid item sm={10} xs={12}>
                     <Carrosel />
-                    <Divider className={classes.dividerStyle} variant="middle" />                
+                    <Divider className={classes.dividerStyle} variant="middle" />
                     <Button className={classes.buttonCenter} size="large" variant='contained' color="primary" onClick={() => {
                         history.push(`/cursos`)
                     }} >
