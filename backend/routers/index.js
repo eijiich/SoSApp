@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
-const cursosController = require('../controllers/cursosController');
 
+const authRouter = require('./authRouter');
 const cursosRouter = require('./cursosRouter');
 
-//router.use('/cursos', cursosRouter);
+router.use('/auth', authRouter);
+router.use('/cursos', cursosRouter);
 
 module.exports = cursosRouter;
